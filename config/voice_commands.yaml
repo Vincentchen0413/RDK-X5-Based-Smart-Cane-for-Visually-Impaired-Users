@@ -1,0 +1,36 @@
+intents:
+  navigate:
+    examples:
+      - "我要去{place}"
+      - "带我去{place}"
+      - "导航到{place}"
+      - "去{place}"
+    required_slots: [place]
+
+  mark_landmark:
+    examples:
+      - "这里是{place}"
+      - "标记这里为{place}"
+      - "记录当前位置为{place}"
+    required_slots: [place]
+
+  start_mapping:
+    examples: ["开始建图", "进入建图模式"]
+
+  stop_mapping:
+    examples: ["结束建图", "保存地图"]
+
+  cancel_navigation:
+    examples: ["停止导航", "取消导航"]
+
+  query_time:
+    examples: ["现在几点", "查询时间"]
+
+  query_date:
+    examples: ["今天几号", "查询日期"]
+
+  query_weather:
+    examples: ["今天天气怎么样", "查询天气"]
+
+  system_status:
+    examples: ["系统状态", "设备正常吗"]

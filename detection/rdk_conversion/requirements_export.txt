@@ -1,0 +1,5 @@
+ultralytics==8.4.66
+torch
+onnx
+onnxruntime
+numpy

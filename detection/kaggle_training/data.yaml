@@ -1,0 +1,15 @@
+path: /kaggle/working/dataset
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: red_signal
+  1: yellow_signal
+  2: green_signal
+  3: puddle
+  4: closed_manhole
+  5: ban
+  6: slippery
+  7: walk

@@ -1,0 +1,32 @@
+project:
+  name: smart_cane_ros
+  default_profile: navigation
+  log_dir: logs
+
+ros:
+  odom_topic: /rtabmap/odom
+  location_topic: /smart_cane/location/current
+  voice_intent_topic: /smart_cane/voice/intent
+  audio_request_topic: /smart_cane/audio/request
+  speak_topic: /smart_cane/voice/speak
+
+paths:
+  location_cache: fall/rdk_x5/last_position.json
+  fall_history: fall/rdk_x5/fall_history.json
+  landmark_file: slam_nav/blind_cane_maps/landmarks.json
+  map_dir: slam_nav/blind_cane_maps
+  database_dir: slam_nav/db
+
+commands:
+  start_mapping: [bash, slam_nav/start_mapping_slam.sh]
+  stop_mapping: [bash, slam_nav/stop_mapping_slam_graceful.sh]
+  start_localization: [bash, slam_nav/start_localization_verify.sh]
+  stop_localization: [bash, slam_nav/stop_localization_verify.sh]
+  mark_landmark: [python3, slam_nav/landmark_cli.py, add]
+  navigate_to_landmark: [python3, slam_nav/navigate_to_landmark_realtime.py]
+
+system:
+  network_required_for_core: false
+  heartbeat_timeout_sec: 10
+  process_restart_limit: 5
+  emergency_hold_sec: 20

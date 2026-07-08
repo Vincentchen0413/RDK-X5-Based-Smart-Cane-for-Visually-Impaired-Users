@@ -1,0 +1,14 @@
+dataset_root: /kaggle/working/dataset
+data_yaml: /kaggle/working/dataset/data.yaml
+base_model: yolov8n.pt
+project: /kaggle/working/runs
+run_name: smart_cane_yolov8n_v1
+imgsz: 640
+epochs: 120
+batch: 16
+device: 0
+workers: 2
+patience: 30
+seed: 42
+conf: 0.25
+iou: 0.7

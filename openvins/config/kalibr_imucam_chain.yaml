@@ -1,0 +1,39 @@
+# 所有数值均为占位示例，不能直接用于实机。
+# 需要使用Kalibr或等价方法完成：
+# 1. 左右相机内参
+# 2. 左右相机相对外参
+# 3. 相机与IMU外参
+# 4. 相机与IMU时间偏移
+
+cam0:
+  camera_model: pinhole
+  distortion_model: radtan
+  intrinsics: [500.0, 500.0, 320.0, 240.0]
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]
+  resolution: [640, 480]
+  rostopic: /StereoNetNode/rectify_left_image
+
+  # T_cam_imu占位矩阵
+  T_cam_imu:
+    - [1.0, 0.0, 0.0, 0.0]
+    - [0.0, 1.0, 0.0, 0.0]
+    - [0.0, 0.0, 1.0, 0.0]
+    - [0.0, 0.0, 0.0, 1.0]
+
+  timeshift_cam_imu: 0.0
+
+cam1:
+  camera_model: pinhole
+  distortion_model: radtan
+  intrinsics: [500.0, 500.0, 320.0, 240.0]
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]
+  resolution: [640, 480]
+  rostopic: /StereoNetNode/rectify_right_image
+
+  T_cam_imu:
+    - [1.0, 0.0, 0.0, -0.10]
+    - [0.0, 1.0, 0.0, 0.0]
+    - [0.0, 0.0, 1.0, 0.0]
+    - [0.0, 0.0, 0.0, 1.0]
+
+  timeshift_cam_imu: 0.0

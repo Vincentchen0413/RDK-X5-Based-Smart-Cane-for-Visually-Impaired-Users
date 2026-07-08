@@ -1,0 +1,8 @@
+PyYAML>=6.0
+psutil>=5.9
+requests>=2.31
+numpy>=1.23
+# ROS 2 Python packages are normally installed with the system/TROS image.
+# rclpy
+# std_msgs
+# nav_msgs

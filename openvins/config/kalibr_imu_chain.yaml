@@ -1,0 +1,15 @@
+# 必须使用你的IMU实测参数替换所有占位值。
+# 推荐通过静止采样和Allan方差估计噪声。
+
+rostopic: /imu_data
+update_rate: 200.0
+
+accelerometer_noise_density: 0.002
+accelerometer_random_walk: 0.0002
+
+gyroscope_noise_density: 0.0002
+gyroscope_random_walk: 0.00002
+
+# 若驱动输出单位不符合sensor_msgs/Imu约定，应先在驱动层转换：
+# angular_velocity: rad/s
+# linear_acceleration: m/s^2

@@ -1,0 +1,15 @@
+.gitignore
+README_CN.md
+artifacts/README.txt
+classes.list
+data.yaml
+requirements.txt
+scripts/00_environment_check.py
+scripts/01_prepare_dataset.py
+scripts/02_validate_dataset.py
+scripts/03_train.py
+scripts/04_evaluate_export.py
+scripts/05_package_artifacts.py
+scripts/common.py
+traffic-yolo-clean.ipynb
+train_config.yaml

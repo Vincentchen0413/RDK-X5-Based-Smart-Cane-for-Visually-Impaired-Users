@@ -1,0 +1,76 @@
+smart_cane_ros_open_source_template
+├── adapters
+│   └── fall_file_adapter.py
+├── bringup
+│   ├── audio_priority_manager.py
+│   ├── health_monitor.py
+│   ├── location_cache_node.py
+│   ├── safety_event_router.py
+│   ├── smart_cane_supervisor.py
+│   ├── system_state_manager.py
+│   └── voice_command_router.py
+├── config
+│   ├── alert_priority.yaml
+│   ├── modules.yaml
+│   ├── system.yaml
+│   └── voice_commands.yaml
+├── deploy
+│   ├── systemd
+│   │   └── smart-cane.service.in
+│   ├── env.example
+│   ├── install_autostart.sh
+│   └── uninstall_autostart.sh
+├── detection
+│   ├── kaggle_training
+│   │   └── .keep_existing_code_here
+│   ├── rdk_conversion
+│   │   └── .keep_existing_code_here
+│   └── runtime
+│       ├── README.md
+│       └── yolo_detector_node.py
+├── docs
+│   ├── ARCHITECTURE_CN.md
+│   ├── DEPLOY_RDK_X5_CN.md
+│   ├── MIGRATION_GUIDE_CN.md
+│   └── ROS_INTERFACES_CN.md
+├── fall
+│   └── .keep_existing_code_here
+├── interfaces
+│   ├── msg
+│   │   ├── AudioRequest.msg
+│   │   ├── FallEvent.msg
+│   │   ├── NamedGoal.msg
+│   │   ├── PerceptionEvent.msg
+│   │   ├── SystemHealth.msg
+│   │   └── VoiceIntent.msg
+│   └── README.md
+├── launch
+│   └── smart_cane_bringup.launch.py
+├── openvins
+│   └── .keep_existing_code_here
+├── scripts
+│   ├── preflight_check.py
+│   ├── start_all.sh
+│   ├── status.sh
+│   └── stop_all.sh
+├── slam_nav
+│   ├── blind_cane_maps
+│   │   └── .gitkeep
+│   ├── db
+│   │   └── .gitkeep
+│   └── logs
+│       └── .gitkeep
+├── tests
+│   └── smoke_test.py
+├── viz
+│   └── .keep_existing_code_here
+├── voice
+│   └── .keep_existing_code_here
+├── .gitignore
+├── CHANGELOG.md
+├── LICENSE
+├── OPEN_SOURCE_CHECKLIST_CN.md
+├── README.md
+├── README_cn.md
+├── requirements-runtime.txt
+└── THIRD_PARTY_NOTICES.md

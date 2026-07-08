@@ -1,0 +1,26 @@
+openvins_to_rtabmap_odom:
+  ros__parameters:
+    input_topic: /openvins/odom_raw
+    output_topic: /odom
+
+    odom_frame: odom
+    base_frame: base_link
+
+    # T_imu_base：从IMU坐标系到base_link坐标系的变换。
+    # 下列参数仅为占位示例，必须按真实安装位置修改。
+    imu_to_base_xyz: [0.0, 0.0, -0.70]
+    imu_to_base_rpy_deg: [0.0, 0.0, 0.0]
+
+    planar_output: true
+    publish_tf: true
+
+    # 超过该时间没有收到OpenVINS里程计，即认为后端不健康。
+    timeout_seconds: 1.0
+
+    # 拒绝明显不合理的单帧跳变。
+    max_linear_jump_m: 1.0
+    max_yaw_jump_deg: 60.0
+
+    # 是否在首次有效输入时把局部平面原点归零。
+    # 一般可关闭，让OpenVINS自身的局部odom原点保持原样。
+    zero_first_pose: false

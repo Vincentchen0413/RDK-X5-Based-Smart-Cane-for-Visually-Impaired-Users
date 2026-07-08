@@ -1,0 +1,23 @@
+{
+  "name": "V7 OpenVINS integration template",
+  "version": "1.0",
+  "purpose": "OpenVINS local VIO + RTAB-Map global mapping/localization",
+  "files": [
+    "README.md",
+    "VERSION.txt",
+    "config/estimator_config.yaml",
+    "config/kalibr_imu_chain.yaml",
+    "config/kalibr_imucam_chain.yaml",
+    "config/openvins_bridge.yaml",
+    "integration/localization_backend_patch.sh",
+    "integration/mapping_backend_patch.sh",
+    "integration/navigation_health_patch.py",
+    "launch/openvins_v7.launch.py",
+    "nodes/openvins_health_monitor.py",
+    "nodes/openvins_to_rtabmap_odom.py",
+    "scripts/openvins_env.sh",
+    "scripts/start_openvins_backend.sh",
+    "scripts/stop_openvins_backend.sh"
+  ],
+  "warning": "Calibration values and OpenVINS command/topic names are placeholders."
+}

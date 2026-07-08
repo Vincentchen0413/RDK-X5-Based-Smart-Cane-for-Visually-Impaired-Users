@@ -1,0 +1,40 @@
+# OpenVINS估计器配置示例。
+# 字段名需要根据实际安装的OpenVINS版本核对。
+# 这里主要体现V7项目需要的配置思路。
+
+verbosity: INFO
+
+# 双目+IMU
+use_stereo: true
+max_cameras: 2
+
+# 初始化
+init_window_time: 3.0
+init_imu_thresh: 0.4
+init_dyn_use: false
+
+# 特征跟踪
+num_pts: 150
+fast_threshold: 15
+grid_x: 5
+grid_y: 4
+min_px_dist: 10
+
+# MSCKF滑动窗口
+max_clone_size: 10
+max_msckf_in_update: 40
+max_slam_in_update: 20
+
+# 实机部署阶段建议固定可靠的离线标定值
+calib_cam_extrinsics: false
+calib_cam_intrinsics: false
+calib_cam_timeoffset: false
+
+# 配置文件路径
+imu_config_path: /home/sunrise/smart_cane_ros/slam_nav/openvins/config/kalibr_imu_chain.yaml
+camera_config_path: /home/sunrise/smart_cane_ros/slam_nav/openvins/config/kalibr_imucam_chain.yaml
+
+# 话题名称仅为示例，最终以实际OpenVINS版本的参数格式为准
+imu_topic: /imu_data
+cam0_topic: /StereoNetNode/rectify_left_image
+cam1_topic: /StereoNetNode/rectify_right_image

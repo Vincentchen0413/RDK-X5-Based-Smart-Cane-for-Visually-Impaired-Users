@@ -1,0 +1,110 @@
+# All paths are relative to repository root unless absolute.
+# Profiles prevent mapping and localization from starting at the same time.
+
+profiles:
+  navigation:
+    - health_monitor
+    - location_cache
+    - audio_manager
+    - safety_router
+    - voice_router
+    - state_manager
+    - viz_bridge
+    - openvins_backend
+    - slam_localization
+    - perception_detector
+    - fall_detector
+    - fall_adapter
+
+  mapping:
+    - health_monitor
+    - location_cache
+    - audio_manager
+    - safety_router
+    - voice_router
+    - state_manager
+    - viz_bridge
+    - openvins_backend
+    - slam_mapping
+    - perception_detector
+    - fall_detector
+    - fall_adapter
+
+modules:
+  health_monitor:
+    command: [python3, bringup/health_monitor.py]
+    required: true
+    restart: always
+    startup_delay: 0.0
+
+  location_cache:
+    command: [python3, bringup/location_cache_node.py]
+    required: true
+    restart: always
+    startup_delay: 0.2
+
+  audio_manager:
+    command: [python3, bringup/audio_priority_manager.py]
+    required: true
+    restart: always
+    startup_delay: 0.2
+
+  safety_router:
+    command: [python3, bringup/safety_event_router.py]
+    required: true
+    restart: always
+    startup_delay: 0.2
+
+  voice_router:
+    command: [python3, bringup/voice_command_router.py]
+    required: true
+    restart: always
+    startup_delay: 0.2
+
+  state_manager:
+    command: [python3, bringup/system_state_manager.py]
+    required: true
+    restart: always
+    startup_delay: 0.2
+
+  viz_bridge:
+    command: [bash, viz/start_smart_cane_viz_bridge.sh]
+    required: false
+    restart: on-failure
+    startup_delay: 0.5
+
+  openvins_backend:
+    command: [bash, openvins/scripts/start_openvins_backend.sh]
+    required: false
+    restart: on-failure
+    startup_delay: 1.0
+
+  slam_mapping:
+    command: [bash, slam_nav/start_mapping_slam.sh]
+    required: true
+    restart: on-failure
+    startup_delay: 2.0
+
+  slam_localization:
+    command: [bash, slam_nav/start_localization_verify.sh]
+    required: true
+    restart: on-failure
+    startup_delay: 2.0
+
+  perception_detector:
+    command: [python3, detection/runtime/yolo_detector_node.py]
+    required: true
+    restart: on-failure
+    startup_delay: 1.0
+
+  fall_detector:
+    command: [python3, fall/rdk_x5/fall.py]
+    required: true
+    restart: on-failure
+    startup_delay: 0.5
+
+  fall_adapter:
+    command: [python3, adapters/fall_file_adapter.py]
+    required: false
+    restart: always
+    startup_delay: 0.5

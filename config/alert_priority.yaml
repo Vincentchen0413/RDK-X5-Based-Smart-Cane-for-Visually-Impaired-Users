@@ -1,0 +1,19 @@
+priorities:
+  fall_emergency: 100
+  collision_imminent: 90
+  dangerous_ground: 80
+  system_fault: 75
+  low_battery: 70
+  navigation_turn: 60
+  navigation_arrival: 60
+  perception_notice: 40
+  query_response: 20
+
+cooldown_sec:
+  traffic_light: 5
+  puddle: 4
+  manhole_cover: 4
+  slippery_area: 5
+  pedestrian_prohibited: 8
+  crosswalk: 6
+  low_battery: 120

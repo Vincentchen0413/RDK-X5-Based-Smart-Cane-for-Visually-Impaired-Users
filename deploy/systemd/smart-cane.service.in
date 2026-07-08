@@ -1,0 +1,25 @@
+[Unit]
+Description=RDK X5 Smart Cane Integrated Service
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@GROUP@
+WorkingDirectory=@ROOT@
+EnvironmentFile=-@ROOT@/deploy/env.local
+ExecStart=/usr/bin/bash @ROOT@/scripts/start_all.sh navigation
+ExecStop=/usr/bin/bash @ROOT@/scripts/stop_all.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+KillMode=control-group
+StandardOutput=append:@ROOT@/logs/systemd.log
+StandardError=append:@ROOT@/logs/systemd.log
+
+# Allow camera, audio and serial/IMU devices through the user's groups.
+SupplementaryGroups=video audio dialout
+
+[Install]
+WantedBy=multi-user.target
